@@ -19,4 +19,17 @@
         align-items: center;
         gap: 2.5rem;
     }
+
+    :global(.todo-button) {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        transition: opacity 0.8s ease;
+        margin: 0;
+    }
+    :global(.todo-button:hover) {
+        background-color: hsl(252, 21%, 94%);
+        border-radius: 2px;
+    }
 </style>

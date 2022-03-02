@@ -25,7 +25,7 @@
 </script>
 
 <section>
-    <div>
+    <div class="add-todo-bar">
         <input
             type="text"
             name="addTodo"
@@ -33,16 +33,29 @@
             bind:value={newTodoText}
             on:keyup={handlePressEnterKey}
         />
-        <button on:click={addTodo}><PlusCircleIcon size="24" /></button>
+        <button class="todo-button add-todo-button" on:click={addTodo}
+            ><PlusCircleIcon size="24" /></button
+        >
     </div>
 </section>
 
 <style>
-    div {
+    .add-todo-bar {
         display: flex;
         justify-content: center;
+        border-radius: 0.5rem;
+        width: 35rem;
+        background-color: hsl(0, 0%, 100%);
+        padding-bottom: 0.75rem;
+        padding-top: 0.75rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        transition: all 0.8s ease;
+        box-shadow: 0 0 2rem 0.4rem hsl(0, 0%, 0%, 0.1);
     }
-    button {
-        display: flex;
+    input[type='text'] {
+        border: none;
+        flex-grow: 1;
+        margin: 0 0 0 1rem;
     }
 </style>
