@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
     import { PlusCircleIcon } from 'svelte-feather-icons'
     import { todos } from '../stores/store'
+    import Todo from '../types/Todo'
 
     let newTodoText = ''
 
     const addTodo = () => {
-        const newTodo = {
+        const newTodo: Todo = {
             text: newTodoText,
             checked: false,
         }

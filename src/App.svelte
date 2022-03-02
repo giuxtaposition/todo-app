@@ -1,33 +1,23 @@
 <script lang="ts">
-    import { todos } from './lib/stores/store'
-    import Todo from './lib/types/Todo'
     import Header from './lib/components/Header.svelte'
     import AddTodo from './lib/components/AddTodo.svelte'
-    let todosValue: Todo[]
-
-    todos.subscribe(value => {
-        todosValue = value
-    })
-
-    $: console.log(todosValue)
+    import TodoList from './lib/components/TodoList.svelte'
 </script>
 
 <main>
     <Header />
     <AddTodo />
+    <TodoList />
 </main>
 
 <style>
     main {
         text-align: center;
-        padding: 1em;
-        max-width: 240px;
-        margin: 0 auto;
-    }
-
-    @media (min-width: 640px) {
-        main {
-            max-width: none;
-        }
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
     }
 </style>
