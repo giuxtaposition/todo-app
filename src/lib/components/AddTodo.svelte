@@ -42,9 +42,7 @@
 <style>
     .add-todo-bar {
         display: flex;
-        justify-content: center;
         border-radius: 0.5rem;
-        width: 35rem;
         background-color: hsl(0, 0%, 100%);
         padding-bottom: 0.75rem;
         padding-top: 0.75rem;
@@ -55,7 +53,7 @@
     }
     input[type='text'] {
         border: none;
-        flex-grow: 1;
-        margin: 0 0 0 1rem;
+        width: 100%;
+        margin: 0 0.25rem 0 1rem;
     }
 </style>

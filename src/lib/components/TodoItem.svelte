@@ -44,7 +44,6 @@
 
 <style>
     .todo {
-        width: 35rem;
         background-color: hsl(0, 0%, 100%);
         height: 2rem;
         display: flex;

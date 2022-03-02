@@ -22,7 +22,7 @@
         flex-direction: column;
         justify-content: center;
         box-shadow: 0 0 2rem 0.4rem hsl(0, 0%, 0%, 0.1);
-        width: fit-content;
+        width: 100%;
         margin: 0;
         padding: 0;
     }
