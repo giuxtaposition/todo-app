@@ -54,10 +54,7 @@
         padding-right: 2rem;
         transition: all 0.8s ease;
     }
-    .todo:hover .todo-button {
-        opacity: 1;
-        pointer-events: all;
-    }
+
     .todo:first-child {
         border-radius: 0.5rem 0.5rem 0 0;
     }
@@ -71,13 +68,20 @@
         width: 100%;
         margin: 0 0 0 1rem;
     }
-    .todo-button {
-        opacity: 0;
-        pointer-events: none;
-    }
 
     .todo-text {
         flex-grow: 1;
         margin-left: 1rem;
+    }
+
+    @media screen and (min-width: 600px) {
+        .todo-button {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .todo:hover .todo-button {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 </style>
