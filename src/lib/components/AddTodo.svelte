@@ -2,13 +2,15 @@
     import { PlusCircleIcon } from 'svelte-feather-icons'
     import { todos } from '../stores/store'
     import Todo from '../types/Todo'
+    import { id } from '../utils/id'
 
     let newTodoText = ''
 
     const addTodo = () => {
         const newTodo: Todo = {
+            id: id(),
             text: newTodoText,
-            checked: false,
+            completed: false,
         }
         todos.update(todos => [...todos, newTodo])
         newTodoText = ''
