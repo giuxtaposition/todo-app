@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { EditIcon } from 'svelte-feather-icons'
+    import { EditIcon, TrashIcon } from 'svelte-feather-icons'
+    import { todos } from '../stores/store'
     import Todo from '../types/Todo'
     import { clickOutside } from '../utils/click_outside'
 
@@ -10,6 +11,9 @@
         todo.text = newText
         editMode = false
     }
+    const handleDelete = () => {
+        todos.update(todos => todos.filter(({ id }) => id !== todo.id))
+    }
 </script>
 
 <div class="todo">
@@ -17,6 +21,7 @@
 
     {#if editMode}
         <input
+            class="todo-text"
             type="text"
             name="text"
             value={todo.text}
@@ -24,9 +29,15 @@
             use:clickOutside={() => (editMode = false)}
         />
     {:else}
-        <p>{todo.text}</p>
-        <button class="edit-todo-button" on:click={() => (editMode = true)}>
+        <p class="todo-text">{todo.text}</p>
+        <button
+            class="todo-button edit-todo-button"
+            on:click={() => (editMode = true)}
+        >
             <EditIcon size="24" />
+        </button>
+        <button class="todo-button delete-todo-button" on:click={handleDelete}>
+            <TrashIcon size="24" />
         </button>
     {/if}
 </div>
@@ -42,9 +53,9 @@
         padding-top: 0.75rem;
         padding-left: 2rem;
         padding-right: 2rem;
-        gap: 2rem;
+        transition: all 0.8s ease;
     }
-    .todo:hover .edit-todo-button {
+    .todo:hover .todo-button {
         opacity: 1;
         pointer-events: all;
     }
@@ -59,9 +70,9 @@
     }
     input[type='text'] {
         width: 100%;
-        margin: 0;
+        margin: 0 0 0 1rem;
     }
-    .edit-todo-button {
+    .todo-button {
         background-color: transparent;
         border: none;
         display: flex;
@@ -69,6 +80,14 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.8s ease;
-        margin-left: auto;
+        margin: 0;
+    }
+    .todo-button:hover {
+        background-color: hsl(252, 21%, 94%);
+        border-radius: 2px;
+    }
+    .todo-text {
+        flex-grow: 1;
+        margin-left: 1rem;
     }
 </style>
