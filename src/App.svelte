@@ -1,9 +1,20 @@
-<script>
-    import Header from './components/Header.svelte'
+<script lang="ts">
+    import { todos } from './lib/stores/store'
+    import Todo from './lib/types/Todo'
+    import Header from './lib/components/Header.svelte'
+    import AddTodo from './lib/components/AddTodo.svelte'
+    let todosValue: Todo[]
+
+    todos.subscribe(value => {
+        todosValue = value
+    })
+
+    $: console.log(todosValue)
 </script>
 
 <main>
     <Header />
+    <AddTodo />
 </main>
 
 <style>
