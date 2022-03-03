@@ -1,6 +1,6 @@
-import { writable } from 'svelte/store'
 import type Todo from '../types/Todo'
 import { id } from '../utils/id'
+import { localStore } from './localStorage'
 
 const initialTodos: Todo[] = [
     { id: id(), text: 'Run a marathon', completed: true },
@@ -8,4 +8,4 @@ const initialTodos: Todo[] = [
     { id: id(), text: 'Sing in the shower', completed: false },
 ]
 
-export const todos = writable<Todo[]>(initialTodos)
+export const todos = localStore('todo-app', initialTodos)

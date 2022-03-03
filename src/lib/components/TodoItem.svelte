@@ -1,7 +1,7 @@
 <script lang="ts">
     import { EditIcon, TrashIcon } from 'svelte-feather-icons'
     import { todos } from '../stores/store'
-    import Todo from '../types/Todo'
+    import type Todo from '../types/Todo'
     import { clickOutside } from '../utils/click_outside'
 
     export let todo: Todo

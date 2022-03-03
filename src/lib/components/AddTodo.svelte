@@ -1,7 +1,7 @@
 <script lang="ts">
     import { PlusCircleIcon } from 'svelte-feather-icons'
     import { todos } from '../stores/store'
-    import Todo from '../types/Todo'
+    import type Todo from '../types/Todo'
     import { id } from '../utils/id'
 
     let newTodoText = ''
