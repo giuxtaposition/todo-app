@@ -1,5 +1,6 @@
 <script lang="ts">
     import { EditIcon, TrashIcon } from 'svelte-feather-icons'
+    import { fade, fly } from 'svelte/transition'
     import { todos } from '../stores/store'
     import type Todo from '../types/Todo'
     import { clickOutside } from '../utils/click_outside'
@@ -27,9 +28,13 @@
             value={todo.text}
             on:change={event => handleTextChange(event.currentTarget.value)}
             use:clickOutside={() => (editMode = false)}
+            out:fly={{ y: -20, duration: 800 }}
+            in:fly={{ y: -20, duration: 800 }}
         />
     {:else}
-        <p class="todo-text">{todo.text}</p>
+        <p in:fade={{ delay: 800, duration: 1000 }} class="todo-text">
+            {todo.text}
+        </p>
         <button
             class="todo-button edit-todo-button"
             on:click={() => (editMode = true)}

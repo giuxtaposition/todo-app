@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { slide, fly } from 'svelte/transition'
+    import { expoOut } from 'svelte/easing'
     import { todos } from '../stores/store'
     import TodoItem from './TodoItem.svelte'
 
@@ -8,7 +10,11 @@
 <section>
     <ul class="todos">
         {#each $todos as todo}
-            <li class="todo-item">
+            <li
+                class="todo-item"
+                in:fly={{ duration: 500, easing: expoOut, x: 150, y: 25 }}
+                out:slide={{ duration: 500, easing: expoOut }}
+            >
                 <TodoItem bind:todo />
             </li>
         {/each}
