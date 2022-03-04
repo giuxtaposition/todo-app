@@ -13,7 +13,7 @@
         editMode = false
     }
     const handleDelete = () => {
-        todos.update(todos => todos.filter(({ id }) => id !== todo.id))
+        $todos = $todos.filter(({ id }) => id !== todo.id)
     }
 </script>
 
