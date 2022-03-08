@@ -5,7 +5,6 @@
     "homepage": "https://github.com/giuxtaposition/todo-app/",
     "scripts": {
         "build": "rollup -c",
-        "deploy": "node ./gh-pages.js",
         "dev": "rollup -c -w",
         "start": "sirv public --no-clear",
         "check": "svelte-check --tsconfig ./tsconfig.json"
