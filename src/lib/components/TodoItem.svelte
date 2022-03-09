@@ -32,9 +32,10 @@
             in:fly={{ y: -20, duration: 800 }}
         />
     {:else}
-        <p in:fade={{ delay: 800, duration: 1000 }} class="todo-text">
-            {todo.text}
-        </p>
+        <div in:fade={{ delay: 800, duration: 1000 }} class="todo-text">
+            <p>{todo.text}</p>
+        </div>
+
         <button
             class="todo-button edit-todo-button"
             on:click={() => (editMode = true)}
@@ -69,6 +70,27 @@
     input[type='checkbox'] {
         margin: 0;
     }
+
+    .todo-text p {
+        position: relative;
+        display: inline-block;
+    }
+
+    input[type='checkbox'] + .todo-text p::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1.25px;
+        transition: width 0.9s 0s cubic-bezier(0.55, 0, 0.1, 1);
+        display: inline-block;
+        background: black;
+        margin-top: 0.7rem;
+    }
+
+    input[type='checkbox']:checked + .todo-text p::before {
+        width: 100%;
+    }
+
     input[type='text'] {
         width: 100%;
         margin: 0 0 0 1rem;
