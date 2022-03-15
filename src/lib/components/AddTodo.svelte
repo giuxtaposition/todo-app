@@ -7,6 +7,10 @@
     let newTodoText = ''
 
     const addTodo = () => {
+        if (newTodoText.replace(/\s/g, '') === '') {
+            return
+        }
+
         const newTodo: Todo = {
             id: id(),
             text: newTodoText,
