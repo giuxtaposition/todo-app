@@ -4,7 +4,7 @@
     import { todos } from '../stores/store'
     import TodoItem from './TodoItem.svelte'
 
-    const coinSound = new Audio('/assets/smw_coin.wav')
+    const coinSound = new Audio('./assets/smw_coin.wav')
 
     const playSound = () => {
         coinSound.play()
