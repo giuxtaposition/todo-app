@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { createEventDispatcher } from 'svelte'
     import { EditIcon, TrashIcon } from 'svelte-feather-icons'
     import { fade, fly } from 'svelte/transition'
     import { todos } from '../stores/store'
@@ -15,10 +16,25 @@
     const handleDelete = () => {
         $todos = $todos.filter(({ id }) => id !== todo.id)
     }
+
+    const dispatchCompletedTodoEvent = createEventDispatcher()
+
+    const onCompletedTodo = (
+        e: Event & {
+            currentTarget: EventTarget & HTMLInputElement
+        }
+    ) => {
+        if (e.currentTarget.checked) dispatchCompletedTodoEvent('completedTodo')
+    }
 </script>
 
 <div class="todo">
-    <input type="checkbox" name="completed" bind:checked={todo.completed} />
+    <input
+        type="checkbox"
+        name="completed"
+        bind:checked={todo.completed}
+        on:change={e => onCompletedTodo(e)}
+    />
 
     {#if editMode}
         <input

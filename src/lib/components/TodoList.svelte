@@ -4,7 +4,11 @@
     import { todos } from '../stores/store'
     import TodoItem from './TodoItem.svelte'
 
-    $: console.log($todos)
+    const coinSound = new Audio('/assets/smw_coin.wav')
+
+    const playSound = () => {
+        coinSound.play()
+    }
 </script>
 
 <section>
@@ -15,7 +19,7 @@
                 in:fly={{ duration: 500, easing: expoOut, x: 150, y: 25 }}
                 out:slide={{ duration: 500, easing: expoOut }}
             >
-                <TodoItem bind:todo />
+                <TodoItem bind:todo on:completedTodo={playSound} />
             </li>
         {/each}
     </ul>
