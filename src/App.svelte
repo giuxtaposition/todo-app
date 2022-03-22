@@ -13,7 +13,7 @@
 <style>
     main {
         padding: 0;
-        margin: 0;
+        margin: 2rem 0 0 0;
         display: flex;
         flex-direction: column;
         align-items: center;
