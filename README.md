@@ -14,6 +14,24 @@ A simple todo list
 
 ---
 
+## Objectives
+
+ Setup a project using Svelte
+- [x] get familiar with build tools
+- [x] get familiar with best practices and how to do things
+
+Implement a simple todo-list application to get more familiar with the technology (you don't have to present this, it's just to get to know the underlying tech better), backlog:
+
+- [x] user can add a task to the list
+- [x] user can remove a task from the list
+- [x] user can mark a task as completed
+- [x] user can edit a task of the list
+- [x] (optional) responsive design
+- [x] (optional) localStorage, sessionStorage persistence
+- [x] (optional) make it good looking through CSS 😏
+- [x] (optional) deploy site
+
+
 ## Get started
 
 Install the dependencies...
